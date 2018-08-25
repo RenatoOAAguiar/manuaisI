@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <title>Análise de Manuais</title>
+</head>
+<body>
+    <div class="container h-100" style="margin-top: 10px">
+            <div class="pb-3 text-center">
+                <img class="d-block mx-auto mb-4" src="img/harold.png" alt="" width="72" height="72">
+                <h2>Harold Platform</h2>
+            </div>
+    </div>
+
+    <div class="container" id="upload">
+            <p class="lead">Selecione um arquivo pdf para ser feito o treinamento!</p>
+            <div class="form-group">
+                <label for="exampleInputFile">Upload de Arquivo</label>
+                <input type="file" class="form-control-file" id="inputFile" aria-describedby="fileHelp">
+            </div>
+            <div class="btn-group">
+                    <button type="submit" id="btnUpload" disabled class="btn btn-primary">Enviar</button>
+            </div>
+    </div>
+
+    <div class="container h-100 d-none" id="conteudo" style="margin-top: 10px">
+            
+        <div class="alert alert-dark" role="alert">
+            Procura nos Manuais
+        </div>
+        <div class="form-group d-none" id="divResposta" >
+                <div class="d-flex justify-content-center alert alert-success col-sm-6" style="margin-left: 30%;" role="alert">
+                        <span class="text-muted" id="txtResposta"></span>
+                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4">
+                <label for="txtPergunta">Pergunta</label>
+                <input type="text" class="form-control" id="txtPergunta" placeholder="Digite a pergunta">
+            </br>
+                <div class="btn-group">
+                    <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+                    <button type="submit" style="margin-left: 5px;" id="btnLimpar" class="btn btn-secundary">Limpar</button>
+                </div>
+            </div>
+            <div class="text-right">
+                    <button type="submit" id="btnBackUpload" class="btn btn-primary"><i class="fa fa-reply"></i> Refazer Upload</button>
+            </div>
+        </div>
+    </div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="node_modules/popper.js/dist/popper-utils.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
