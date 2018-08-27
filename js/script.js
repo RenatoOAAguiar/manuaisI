@@ -52,7 +52,7 @@ function success(data) {
     $("#txtResposta").text(data.response.frase)
     $('#divResposta').removeClass("d-none");
     if(data.response.imagem != undefined && data.response.imagem != ''){
-        $('#imgResposta').attr("src", data.response.imagem);
+        $('#imgResposta').attr("src", data.response.imagem.split("/")[1]);
         $('#imgResposta').removeClass("d-none");
     }
 }
