@@ -25,7 +25,7 @@ $("#inputFile").change(function (){
         $('#btnUpload').attr("disabled", "disabled");
     }
     form = new FormData();
-    form.append('fileUpload', event.target.files[0]);
+    form.append('file', event.target.files[0]);
 });
 
 $(document).ready(function() {
@@ -84,6 +84,7 @@ $('#btnUpload').on('click', function(){
         type: 'POST',
         success: function (data) {
             // utilizar o retorno
+            setFile("Manual.pdf");
             $this.html($this.data('original-text'));
             $('#btnUpload').attr("disabled", "disabled");
             habilitarCampos();
@@ -96,6 +97,17 @@ $('#btnUpload').on('click', function(){
     //}, 5000);
 
 });
+
+function setFile(file) {
+    $.ajax({
+        type: "GET",
+        url: URL + "?file=" + file,
+        //data: data,
+        success: success,
+        error: error,
+        dataType: "json"
+    });
+}
 
 function send(){
     var question = $('#txtPergunta').val();
