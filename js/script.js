@@ -54,6 +54,8 @@ function success(data) {
     if(data.response.imagem != undefined && data.response.imagem != ''){
         $('#imgResposta').attr("src", "img/" + data.response.imagem.split("/")[1]);
         $('#imgResposta').removeClass("d-none");
+    } else {
+        $('#imgResposta').addClass("d-none");
     }
 }
 
