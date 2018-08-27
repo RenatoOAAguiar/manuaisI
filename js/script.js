@@ -103,8 +103,12 @@ function setFile(file) {
         type: "GET",
         url: URL + "?file=" + file,
         //data: data,
-        success: success,
-        error: error,
+        success: function(){
+            console.log("Nome setado com sucesso");
+        },
+        error: function() {
+            console.log("Erro ao setar o nome");
+        },
         dataType: "json"
     });
 }
