@@ -1,4 +1,5 @@
-const URL = "http://200.205.110.233:4501/manuais/"
+const URL = "http://200.205.110.233/manualquestion"
+const URL_UPLOAD = "http://200.205.110.233/manualupload" 
 var form = '';
 
 
@@ -7,7 +8,7 @@ function find(question) {
 
     $.ajax({
         type: "GET",
-        url: URL + "/manual?question=" + question,
+        url: URL + "?question=" + question,
         //data: data,
         success: success,
         error: error,
@@ -17,13 +18,14 @@ function find(question) {
 
 $("#inputFile").change(function (){
     var fileName = $(this).val();
+    console.log("conteudo" + fileName);
     if(fileName != null){
         $('#btnUpload').prop("disabled", false);
-        form = new FormData();
-        form.append('fileUpload', event.target.files[0]);
     } else {
         $('#btnUpload').attr("disabled", "disabled");
     }
+    form = new FormData();
+    form.append('fileUpload', event.target.files[0]);
 });
 
 $(document).ready(function() {
@@ -47,7 +49,7 @@ function error(jqXHR, exception){
 
 function success(data) {
     console.log(data);
-    $("#txtResposta").text(data.response)
+    $("#txtResposta").text(data.response.frase)
     $('#divResposta').removeClass("d-none");
 }
 
@@ -68,8 +70,10 @@ $('#btnUpload').on('click', function(){
       $this.html(loadingText);
     }
 
+    console.log($('#inputFile')[0].files[0]);
+
     $.ajax({
-        url: URL + "/upload", // Url do lado server que vai receber o arquivo
+        url: URL_UPLOAD, // Url do lado server que vai receber o arquivo
         data: form,
         processData: false,
         contentType: false,
@@ -81,6 +85,11 @@ $('#btnUpload').on('click', function(){
             habilitarCampos();
         }
     });
+    //setTimeout(function() {
+    //        $this.html($this.data('original-text'));
+    //        $('#btnUpload').attr("disabled", "disabled");
+    //        habilitarCampos();
+    //}, 5000);
 
 });
 
