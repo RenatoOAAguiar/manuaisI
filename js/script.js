@@ -76,25 +76,25 @@ $('#btnUpload').on('click', function(){
 
     console.log($('#inputFile')[0].files[0]);
 
-    $.ajax({
-        url: URL_UPLOAD, // Url do lado server que vai receber o arquivo
-        data: form,
-        processData: false,
-        contentType: false,
-        type: 'POST',
-        success: function (data) {
+    //$.ajax({
+    //    url: URL_UPLOAD, // Url do lado server que vai receber o arquivo
+    //    data: form,
+    //    processData: false,
+    //    contentType: false,
+    //    type: 'POST',
+    //    success: function (data) {
             // utilizar o retorno
-            setFile("Manual.pdf");
-            $this.html($this.data('original-text'));
-            $('#btnUpload').attr("disabled", "disabled");
-            habilitarCampos();
-        }
-    });
-    //setTimeout(function() {
+    //        setFile("Manual.pdf");
     //        $this.html($this.data('original-text'));
     //        $('#btnUpload').attr("disabled", "disabled");
     //        habilitarCampos();
-    //}, 5000);
+    //    }
+    //});
+    setTimeout(function() {
+            $this.html($this.data('original-text'));
+            $('#btnUpload').attr("disabled", "disabled");
+            habilitarCampos();
+    }, 5000);
 
 });
 
