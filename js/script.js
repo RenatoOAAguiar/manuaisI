@@ -1,4 +1,4 @@
-const URL = "http://localhost:4500/bula"
+const URL = "http://200.205.110.233:4501/manuais/"
 var form = '';
 
 
@@ -7,7 +7,7 @@ function find(question) {
 
     $.ajax({
         type: "GET",
-        url: URL + "?question=" + question,
+        url: URL + "/manual?question=" + question,
         //data: data,
         success: success,
         error: error,
@@ -67,21 +67,21 @@ $('#btnUpload').on('click', function(){
       $this.data('original-text', $(this).html());
       $this.html(loadingText);
     }
-    /* $.ajax({
-        url: URL + "path", // Url do lado server que vai receber o arquivo
+
+    $.ajax({
+        url: URL + "/upload", // Url do lado server que vai receber o arquivo
         data: form,
         processData: false,
         contentType: false,
         type: 'POST',
         success: function (data) {
             // utilizar o retorno
+            $this.html($this.data('original-text'));
+            $('#btnUpload').attr("disabled", "disabled");
+            habilitarCampos();
         }
-    }); */
-    setTimeout(function() {
-      $this.html($this.data('original-text'));
-      $('#btnUpload').attr("disabled", "disabled");
-      habilitarCampos();
-    }, 5000);
+    });
+
 });
 
 function send(){
