@@ -51,6 +51,10 @@ function success(data) {
     console.log(data);
     $("#txtResposta").text(data.response.frase)
     $('#divResposta').removeClass("d-none");
+    if(data.response.imagem != undefined && data.response.imagem != ''){
+        $('#imgResposta').attr("src", data.response.imagem);
+        $('#imgResposta').removeClass("d-none");
+    }
 }
 
 $('#btnEnviar').on('click', function(){
